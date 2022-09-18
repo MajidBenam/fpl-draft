@@ -1,17 +1,41 @@
+from base64 import encode
 import requests
 import pandas as pd
 import json
 import pprint
+import time
 
-from IPython.display import Markdown, display
-def printmd(string):
-    display(Markdown(string))
+from all_vars import all_managers_dic, element_type_mapper, good_flags, German_leagues_ids
+
+# from IPython.display import Markdown, display
+# def printmd(string):
+#     display(Markdown(string))
 my_tops = []
 
 base_url_draft = "https://draft.premierleague.com/api/bootstrap-static"
 base_url_fantasy = "https://fantasy.premierleague.com/api/bootstrap-static"
 base_dynamic_url = "https://fantasy.premierleague.com/api/event/4/live/"
-leage_url = "https://draft.premierleague.com/api/draft/59081/choices"
+majid_leage_url = "https://draft.premierleague.com/api/draft/59081/choices"
+milad_leage_url = "https://draft.premierleague.com/api/draft/58924/choices"
+
+#German_leagues_ids = [59081, 58924]
+
+def league_info_collector(league_ids):
+    good_dic_of_league_team_names_flags = {}
+    for league_id in league_ids:
+        league_url = f"https://draft.premierleague.com/api/draft/{league_id}/choices"
+        response = requests.get(league_url)
+        my_league_data = json.loads(response.text)
+        good_dic_of_team_names_flags = {}
+        for index, team in enumerate(my_league_data["choices"][0:16]):
+            for good_flag, good_name in good_flags.items():
+                if good_flag in team["entry_name"]:
+                    #print(index+1, good_flag, team["entry_name"])
+                    good_dic_of_team_names_flags[team["entry"]] = good_name
+        good_dic_of_league_team_names_flags[league_id] = good_dic_of_team_names_flags
+    return good_dic_of_league_team_names_flags
+
+
 
 base_response = requests.get(base_url_draft)
 base_data = json.loads(base_response.text)
@@ -188,9 +212,12 @@ def live_report_maker(all_managers_dic, gw_number):
     managers_points = gw_dic_reporter(all_managers_dic, gw_number)
     final_team_points_dic = {}
     line_str = "-"*64
+    gw_str = f"| ** GameWeek: {gw_number} **{'':<43} |"
     headers_str = f"| TEAM {'':<20} | Points (Bench) | Goals | Assists |"
     full_report = []
     table_report = []
+    table_report.append(line_str)
+    table_report.append(gw_str)
     table_report.append(line_str)
     table_report.append(headers_str)
     table_report.append(line_str)
@@ -222,11 +249,23 @@ def live_report_maker(all_managers_dic, gw_number):
 
 
 
-    for item in sorted_managers:
+    for index, item in enumerate(sorted_managers):
         if "Referee" in item[0]:
             continue
         points_bench_str = f"{str(item[1][0])} ({str(item[1][1])})"
-        team_rank_str = f"| {item[0]:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        if index == 0:
+            team_name = u"\U0001F947" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        elif index == 1:
+            team_name = u"\U0001F948" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        elif index == 2:
+            team_name = u"\U0001F949" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        else:
+            team_name = item[0]
+            team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+
         table_report.append(team_rank_str)
         table_report.append(line_str)
     
@@ -248,6 +287,91 @@ def live_report_maker(all_managers_dic, gw_number):
         manager_report = "\n    ".join(final_report_list)
         full_report.append(manager_report)
     return f"\n\n{'='*60}\n".join(full_report)
+
+
+
+def live_report_maker_aggr(any_managers_dic, gw_number):
+    #final_report_dic = manager_players_info_maker(any_managers_dic, gw_number)
+    managers_points = gw_dic_reporter(any_managers_dic, gw_number)
+    final_team_points_dic = {}
+    line_str = "-"*64
+    gw_str = f"| ** GameWeek: {gw_number} **{'':<43} |"
+    headers_str = f"| TEAM {'':<20} | Points (Bench) | Goals | Assists |"
+    full_report = []
+    table_report = []
+    table_report.append(line_str)
+    table_report.append(gw_str)
+    table_report.append(line_str)
+    table_report.append(headers_str)
+    table_report.append(line_str)
+    for manager, players in managers_points.items():
+        manager_lineup_points = 0
+        manager_lineup_goals = 0
+        manager_lineup_assists = 0
+        manager_bench_points = 0
+        manager_bench_goals = 0
+        manager_bench_assists = 0
+        for player_id, player_name_pos in players.items():
+            player_details = get_player_live_details(player_id, gw_number)
+            player_total_points =  player_details["total_points"]
+            player_total_goals = player_details["goals"]
+            player_total_assists = player_details["assists"]
+            if player_name_pos[1] <= 11:
+                manager_lineup_points = manager_lineup_points + player_total_points
+                manager_lineup_goals = manager_lineup_goals + player_total_goals
+                manager_lineup_assists = manager_lineup_assists + player_total_assists
+            else:
+                manager_bench_points = manager_bench_points + player_total_points
+                manager_bench_goals = manager_bench_goals + player_total_goals
+                manager_bench_assists = manager_bench_assists + player_total_assists
+        final_team_points_dic[manager] = (manager_lineup_points, manager_bench_points, 
+                                    manager_lineup_goals, manager_bench_goals,
+                                    manager_lineup_assists, manager_bench_assists,)
+    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: x[1], reverse=True)
+
+    for index, item in enumerate(sorted_managers):
+        if "Referee" in item[0]:
+            continue
+        points_bench_str = f"{str(item[1][0])} ({str(item[1][1])})"
+        if index == 0:
+            team_name = u"\U0001F947" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        elif index == 1:
+            team_name = u"\U0001F948" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        elif index == 2:
+            team_name = u"\U0001F949" + " " + item[0]
+            team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+        else:
+            team_name = item[0]
+            team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+
+        table_report.append(team_rank_str)
+        table_report.append(line_str)
+    
+    table_report_str = "\n".join(table_report)
+    full_report.append(table_report_str)
+
+    return f"\n\n{'='*60}\n".join(full_report)
+
+
+
+def live_reports_all(German_leagues_ids):
+    my_league_data = league_info_collector(German_leagues_ids)
+    table_gws = {}
+    for gw in [1,2,3,4,5,6,8]:
+        st = time.time()
+        table_league = {}
+        for league_id, league_teams in my_league_data.items():
+            # league_team is a good managers_dic
+            table_league[league_id] = live_report_maker_aggr(league_teams, gw)
+        table_gws[gw] = table_league
+        et = time.time()
+        # get the execution time
+        elapsed_time = et - st
+        print(f"GameWeek {gw} ", "Done..." , end=", ")
+        print('Execution time:', elapsed_time, 'seconds')
+    return table_gws
 
 
 element_type_mapper = {
