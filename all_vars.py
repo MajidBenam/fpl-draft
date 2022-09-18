@@ -1,7 +1,7 @@
 all_managers_dic = {
                     263589: 'Germany 🇩🇪',
                     236729: 'United States 🇺🇲',
-                    243671: 'South Korea🇰🇷',
+                    243671: 'South Korea 🇰🇷',
                     236062: 'Great Britain 🇬🇧',
                     236257: 'France 🇫🇷',
                     236216: 'The Soviet Union ☭',
