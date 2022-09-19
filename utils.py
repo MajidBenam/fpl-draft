@@ -107,7 +107,7 @@ def table_maker(all_managers_dic, gw_number):
                                     manager_lineup_goals, manager_bench_goals,
                                     manager_lineup_assists, manager_bench_assists,)
 
-    sort_managers = sorted(final_points_dic.items(), key=lambda x: x[1], reverse=True)
+    sort_managers = sorted(final_points_dic.items(), key=lambda x: (x[1][0], x[1][2], x[1][4]), reverse=True)
     return sort_managers
 
 def manager_players_info_maker(all_managers_dic, gw_number):
@@ -244,7 +244,7 @@ def live_report_maker(all_managers_dic, gw_number):
         final_team_points_dic[manager] = (manager_lineup_points, manager_bench_points, 
                                     manager_lineup_goals, manager_bench_goals,
                                     manager_lineup_assists, manager_bench_assists,)
-    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: x[1], reverse=True)
+    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: (x[1][0], x[1][2], x[1][4]), reverse=True)
 
 
 
@@ -327,8 +327,10 @@ def live_report_maker_aggr(any_managers_dic, gw_number):
         final_team_points_dic[manager] = (manager_lineup_points, manager_bench_points, 
                                     manager_lineup_goals, manager_bench_goals,
                                     manager_lineup_assists, manager_bench_assists,)
-    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: x[1], reverse=True)
+    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: (x[1][0], x[1][2], x[1][4]), reverse=True)
 
+    # medals
+    medals = {}
     for index, item in enumerate(sorted_managers):
         if "Referee" in item[0]:
             continue
@@ -336,12 +338,24 @@ def live_report_maker_aggr(any_managers_dic, gw_number):
         if index == 0:
             team_name = u"\U0001F947" + " " + item[0]
             team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+            medals["gold"] = item[0]
         elif index == 1:
             team_name = u"\U0001F948" + " " + item[0]
             team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+            medals["silver"] = item[0]
+
         elif index == 2:
             team_name = u"\U0001F949" + " " + item[0]
             team_rank_str = f"| {team_name:<24} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+            medals["bronze"] = item[0]
+        elif index == 3:
+            team_name = item[0]
+            team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+            medals["fourth"] = item[0]
+        elif index == 4:
+            team_name = item[0]
+            team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
+            medals["fifth"] = item[0]
         else:
             team_name = item[0]
             team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
@@ -352,25 +366,50 @@ def live_report_maker_aggr(any_managers_dic, gw_number):
     table_report_str = "\n".join(table_report)
     full_report.append(table_report_str)
 
-    return f"\n\n{'='*60}\n".join(full_report)
+    return (f"\n\n{'='*60}\n".join(full_report), medals)
 
 
 
 def live_reports_all(German_leagues_ids):
     my_league_data = league_info_collector(German_leagues_ids)
     table_gws = {}
+    all_golds = {}
+    all_silvers = {}
+    all_bronzes = {}
+    all_fourths = {}
+    all_fifths = {}
+
     for gw in [1,2,3,4,5,6,8]:
         st = time.time()
         table_league = {}
         for league_id, league_teams in my_league_data.items():
             # league_team is a good managers_dic
-            table_league[league_id] = live_report_maker_aggr(league_teams, gw)
+            table_league[league_id], medals_this_gw = live_report_maker_aggr(league_teams, gw)
+            for medal, country_name in medals_this_gw.items():
+                if medal == "gold":
+                    all_golds[country_name] = all_golds.get(country_name, 0) + 1
+                elif medal == "silver":
+                    all_silvers[country_name] = all_silvers.get(country_name, 0) + 1
+                elif medal == "bronze":
+                    all_bronzes[country_name] = all_bronzes.get(country_name, 0) + 1
+                elif medal == "fourth":
+                    all_fourths[country_name] = all_fourths.get(country_name, 0) + 1
+                elif medal == "fifth":
+                    all_fifths[country_name] = all_fifths.get(country_name, 0) + 1
+                else:
+                    pass
         table_gws[gw] = table_league
         et = time.time()
         # get the execution time
         elapsed_time = et - st
         print(f"GameWeek {gw} ", "Done..." , end=", ")
         print('Execution time:', elapsed_time, 'seconds')
+    # for k, w in good_dic.items():
+    print(all_golds)
+    print()
+    print(all_silvers)
+    print()
+    print(all_bronzes)
     return table_gws
 
 
