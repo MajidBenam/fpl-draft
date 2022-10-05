@@ -1,6 +1,4 @@
 from base64 import encode
-from termios import TIOCPKT_FLUSHREAD
-from matplotlib.textpath import text_to_path
 import requests
 import pandas as pd
 import json
@@ -22,106 +20,31 @@ milad_leage_url = "https://draft.premierleague.com/api/draft/58924/choices"
 
 #German_leagues_ids = [56490, 56760, 57026, 58512, 58924, 59081, 59219, 60061, 60068, 60279, 60283]
 
-def league_managers_finder(league_ids):
-    managers = {}
-    for i in league_ids:
-        league_url = f"https://draft.premierleague.com/api/draft/{i}/choices"
-        response = requests.get(league_url)
-        my_league_data = json.loads(response.text)
-        managers[i] = {}
-        for index, team in enumerate(my_league_data["choices"][0:16]):
-            managers[i][index] = {}
-            managers[i][index]["first_name"] = team["player_first_name"].lower().capitalize()
-            managers[i][index]["last_name"] = team["player_last_name"].lower().capitalize()
-            managers[i][index]["team_id"] = team["entry"]
-            managers[i][index]["golds"] = 0
-            managers[i][index]["silvers"] = 0
-            managers[i][index]["bronzes"] = 0
-            managers[i][index]["fourths"] = 0
-            managers[i][index]["fifths"] = 0
-            if "zealand" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'New Zealand 🇳🇿'
-            elif "taly" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Italy 🇮🇹'
-            elif "apan" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Japan 🇯🇵'
-            elif "outh" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'South Korea 🇰🇷'
-            elif "anada" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Canada 🇨🇦'
-            elif "ungar" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Hungary 🇭🇺'
-            elif "therland" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Netherlands 🇳🇱'
-            elif "rgenti" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Argentina 🇦🇷'
-            elif "chin" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'China 🇨🇳'
-            elif "ermany" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Germany 🇩🇪'
-            elif "ritain" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Great Britain 🇬🇧'
-            elif "ustralia" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'Australia 🇦🇺'
-            elif "oviet" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'The Soviet Union ☭'
-            elif "rance" in team["entry_name"].lower():
-                managers[i][index]["country"] = 'France 🇫🇷'
-            elif "usa" in team["entry_name"].lower() or "nited" in team["entry_name"] :
-                managers[i][index]["country"] = 'United States 🇺🇲'
-            # elif good_flag in team["entry_name"] or good_flag in team["entry_name"]:
-            #     #print(index+1, good_flag, team["entry_name"])
-            #     managers[i]["country"] = good_name
-    return managers    
 
 
-def league_managers_finder_slim(league_ids_dic):
-    managers = {}
-    for city_code, city_name in league_ids_dic.items():
-        league_url = f"https://draft.premierleague.com/api/draft/{city_code}/choices"
-        response = requests.get(league_url)
-        my_league_data = json.loads(response.text)
-        this_league_id = {}
-        for index, team in enumerate(my_league_data["choices"][0:16]):
-            #managers[i][index] = {}
-            #managers[i][index]["first_name"] = team["player_first_name"].lower().capitalize()
-            #managers[i][index]["last_name"] = team["player_last_name"].lower().capitalize()
-            #managers[i][index]["team_id"] = team["entry"]
-            if "zealand" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'New Zealand 🇳🇿'
-            elif "taly" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Italy 🇮🇹'
-            elif "apan" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Japan 🇯🇵'
-            elif "outh" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'South Korea 🇰🇷'
-            elif "anada" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Canada 🇨🇦'
-            elif "ungar" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Hungary 🇭🇺'
-            elif "therland" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Netherlands 🇳🇱'
-            elif "rgenti" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Argentina 🇦🇷'
-            elif "chin" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'China 🇨🇳'
-            elif "ermany" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Germany 🇩🇪'
-            elif "ritain" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Great Britain 🇬🇧'
-            elif "ustralia" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'Australia 🇦🇺'
-            elif "oviet" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'The Soviet Union ☭'
-            elif "rance" in team["entry_name"].lower():
-                this_league_id[team["entry"]] = 'France 🇫🇷'
-            elif "usa" in team["entry_name"].lower() or "nited" in team["entry_name"] :
-                this_league_id[team["entry"]] = 'United States 🇺🇲'
-            # elif good_flag in team["entry_name"] or good_flag in team["entry_name"]:
-            #     #print(index+1, good_flag, team["entry_name"])
-            #     managers[i]["country"] = good_name
-        managers[city_name] = this_league_id
-    return managers  
+majid_medals = [0,0,0,0,0]
+for gw, league in all_medals_from_json.items():
+    for league_id_str, all_medals in league.items():
+        #print(league_id_str)
+        if league_id_str != "59081":
+            continue
+        else:
+            golds = all_medals["all_golds"].get('Germany 🇩🇪', 0)
+            majid_medals[0] = majid_medals[0] + golds
+            silvers = all_medals["all_silvers"].get('Germany 🇩🇪', 0)
+            majid_medals[1] = majid_medals[1] + silvers
+            bronzes = all_medals["all_bronzes"].get('Germany 🇩🇪', 0)
+            majid_medals[2] = majid_medals[2] + bronzes
+            fourths = all_medals["all_fourths"].get('Germany 🇩🇪', 0)
+            majid_medals[3] = majid_medals[3] + fourths
+            fifths = all_medals["all_fifths"].get('Germany 🇩🇪', 0)
+            majid_medals[4] = majid_medals[4] + fifths
+                #medals_for_me[good_team_name] = all_medals_a_country
+        #gw_medals_this_league[gw] = medals_for_me
+    #correct_medals = [int(points/12) for points in majid_medals]
+print(majid_medals)
+
+
 
 def league_code_finder():
     for i in range(59080,59220):
@@ -149,58 +72,8 @@ def league_city_collector(league_ids):
     return league_city
         
 
+
 def league_info_collector(league_ids):
-    good_dic_of_league_team_names_flags = {}
-    german_players = {}
-    for league_id in league_ids:
-        league_url = f"https://draft.premierleague.com/api/draft/{league_id}/choices"
-        response = requests.get(league_url)
-        my_league_data = json.loads(response.text)
-        good_dic_of_team_names_flags = {}
-        
-        for index, team in enumerate(my_league_data["choices"][0:16]):
-            for good_flag, good_name in good_flags.items():
-                if "zealand" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'New Zealand 🇳🇿'
-                elif "taly" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Italy 🇮🇹'
-                elif "apan" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Japan 🇯🇵'
-                elif "outh" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'South Korea 🇰🇷'
-                elif "anada" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Canada 🇨🇦'
-                elif "ungar" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Hungary 🇭🇺'
-                elif "therland" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Netherlands 🇳🇱'
-                elif "rgenti" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Argentina 🇦🇷'
-                elif "chin" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'China 🇨🇳'
-                elif "ermany" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Germany 🇩🇪'
-                    german_players[team["entry"]] = league_id
-                elif "ritain" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Great Britain 🇬🇧'
-                elif "ustralia" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'Australia 🇦🇺'
-                elif "oviet" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'The Soviet Union ☭'
-                elif "rance" in team["entry_name"].lower():
-                    good_dic_of_team_names_flags[team["entry"]] = 'France 🇫🇷'
-                elif "usa" in team["entry_name"].lower() or "nited" in team["entry_name"] :
-                    good_dic_of_team_names_flags[team["entry"]] = 'United States 🇺🇲'
-                elif good_flag in team["entry_name"] or good_flag in team["entry_name"]:
-                    #print(index+1, good_flag, team["entry_name"])
-                    good_dic_of_team_names_flags[team["entry"]] = good_name
-
-        good_dic_of_league_team_names_flags[league_id] = good_dic_of_team_names_flags
-        print(league_id, ": ", str(len(good_dic_of_league_team_names_flags[league_id])))
-    return good_dic_of_league_team_names_flags, german_players
-
-
-def league_info_collector_plus(league_ids):
     good_dic_of_league_team_names_flags = {}
     german_players = {}
     for league_id in league_ids:
@@ -294,44 +167,6 @@ def gw_dic_reporter(all_managers_dic, gw_number):
     return managers_points
     pprint.pprint(managers_points)
 
-def top_players_revealer(all_managers_full_up_to_gw_x):
-    dic_of_all_players ={}
-    for league_id, value in all_managers_full_up_to_gw_x.items():
-        for value_num, main_dic in value.items():
-            try:
-                team_name = main_dic["country"] + " (" +  main_dic["first_name"] + " " + main_dic["last_name"] + ") " + f"[{German_leagues_ids_dic[league_id]}]"
-                medals= (main_dic["golds"], main_dic["silvers"], main_dic["bronzes"], 
-                    main_dic["fourths"], main_dic["fifths"])
-            except:
-                team_name = "Referee"
-                medals= (0,0,0,0,0)
-            dic_of_all_players[team_name] = medals
-    sort_players = sorted(dic_of_all_players.items(), key=lambda x: (x[1][0], x[1][1], x[1][2], x[1][3], x[1][4]), reverse=True)
-    return sort_players
-    
-def top_players_table_maker(bunch_of_sorted_players):
-    line_str = "-"*99
-    gw_str = "|" + "°°° Up to GW: 8 °°°".center(97) + "|"
-    headers_str = f"| ## | ** Manager: [CITY] ** {'':<35} |  " + u"\U0001F947" + "  |  " + u"\U0001F948" + "  |  " + u"\U0001F949" +  "  | 4th | 5th |"
-    #subheaders_str = f"| {'':<59} | " + u"\U0001F947" + " | " + u"\U0001F948" + " | " + u"\U0001F949" +  " | 3rd | 4th |"
-    table_report = []
-    table_report.append(line_str)
-    table_report.append(gw_str)
-    table_report.append(line_str)
-    table_report.append(headers_str)
-    #table_report.append(subheaders_str)
-    table_report.append(line_str)
-
-    for index, team_details in enumerate(bunch_of_sorted_players):
-        #print(team_details)
-        manager_rank_str = f"|{str(index+1):>3} | {team_details[0]:<58}|{str(team_details[1][0]).center(6)}|{str(team_details[1][1]).center(6)}|{str(team_details[1][2]).center(6)}|{str(team_details[1][3]).center(5)}|{str(team_details[1][4]).center(5)}|"
-        #print(index+1, team_details)
-        table_report.append(manager_rank_str)
-        table_report.append(line_str)
-    table_report_str = "\n".join(table_report)
-    return table_report_str
-
-
 
 def table_maker(all_managers_dic, gw_number):
     managers_points = gw_dic_reporter(all_managers_dic, gw_number)
@@ -404,65 +239,6 @@ def player_analysis(players_dic, player_id):
     else:
         pprint.pprint(player_info)
         return f"NO_GAME  ({player_position}): {player_name:.<30}..... X ...."
-
-def player_analysis_HTML(players_dic, player_id):
-    player_info = players_dic[player_id]
-    player_name = player_info['player_name']
-    player_position = player_info['player_position']
-    team_status = player_info["team_of_player_has_played"]
-    player_status = player_info["player_has_played"]
-
-    if team_status == 'PLAYED' and player_status == 'PLAYED':
-        player_report_cell = f"""
-        <span class="text-secondary fw-bold  px-2">{player_name}<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">{player_info['total_points']}</sup>
-        """
-        return player_report_cell, player_position
-
-    elif team_status == 'PLAYED' and player_status == 'DIDNOTPLAY':
-        player_report_cell = f"""
-        <span class="text-secondary fw-bold  px-2"><strike>{player_name}</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
-        """
-        return player_report_cell, player_position
-
-    elif team_status == 'ONGOING' and player_status == 'DIDNOTPLAY':
-        player_report_cell = f"""
-        <span class="text-danger fw-bold px-2">{player_name} 
-            <sup><i class="fa-solid fa-ellipsis text-danger"></i></sup>
-        </span>
-        """
-        return player_report_cell, player_position
-
-    elif team_status == 'ONGOING' and player_status == 'PLAYING':
-        player_report_cell = f"""
-        <span class="text-info fw-bold  px-2">{player_name}<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">{player_info['total_points']}</sup>
-        """
-        return player_report_cell, player_position
-
-    elif team_status == 'ONGOING' and player_status == 'BENCHING':
-        player_report_cell = f"""
-        <span class="text-danger fw-bold px-2">{player_name} 
-            <sup><i class="fa-solid fa-ellipsis text-danger"></i></sup>
-        </span>
-        """
-        return player_report_cell, player_position
-
-    elif team_status == 'UNDONE':
-        player_report_cell = f"""
-        <span class="text-primary fw-bold  px-2">{player_name} 
-            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
-        </span>
-        """
-        return player_report_cell, player_position
-
-    else:
-        pprint.pprint(player_info)
-        player_report_cell = f"""
-        <span class="text-primary fw-bold  px-2"><strike>{player_name}</strike>
-            <sup><i class="fa-solid fa-umbrella-beach text-secondary"></i></sup>
-        </span>
-        """
-        return player_report_cell, player_position
-
 
 
 def report_maker(all_managers_dic, gw_number):
@@ -667,6 +443,7 @@ def live_report_maker_aggr(any_managers_dic, gw_number, league_id):
             team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
             medals["fourth"] = item[0]
         elif index == 4:
+            print(item[0])
             team_name = item[0]
             team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
             medals["fifth"] = item[0]
@@ -681,7 +458,7 @@ def live_report_maker_aggr(any_managers_dic, gw_number, league_id):
         elif index == 7:
             team_name = item[0]
             team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
-            medals["eighth"] = item[0]
+            medals["eigth"] = item[0]
         elif index == 8:
             team_name = item[0]
             team_rank_str = f"| {team_name:<25} |{points_bench_str.center(16)}|{str(item[1][2]).center(7)}|{str(item[1][4]).center(9)}|"
@@ -733,9 +510,9 @@ def live_reports_all(German_leagues_ids, gws):
     my_league_data, my_germans = league_info_collector(German_leagues_ids)
     table_gws = {}
     all_medals = {}
-    with open('table_dics_for_all_9.json', 'r') as f:
+    with open('table_dics_for_all.json', 'r') as f:
         table_gws = json.load(f)
-    with open('medal_dics_for_all_9.json', 'r') as f1:
+    with open('medal_dics_for_all.json', 'r') as f1:
         all_medals = json.load(f1)
 
     for gw in gws:
@@ -745,74 +522,73 @@ def live_reports_all(German_leagues_ids, gws):
         st = time.time()
         table_league = {}
         medals_league = {}
-
+        all_golds = {}
+        all_silvers = {}
+        all_bronzes = {}
+        all_fourths = {}
+        all_fifths = {}
+        all_sixths = {}
+        all_sevenths = {}    
+        all_eighths = {}
+        all_ninths = {}    
+        all_tenths = {}
+        all_elevenths = {}    
+        all_twelfths = {}
+        all_thirteenths = {}    
+        all_fourteenths = {}
+        all_fifteenths = {}
         for league_id, league_teams in my_league_data.items():
             # league_team is a good managers_dic
             table_league[league_id], medals_this_gw = live_report_maker_aggr(league_teams, gw, league_id)
-            golds = {}
-            silvers = {}
-            bronzes = {}
-            fourths = {}
-            fifths = {}
-            sixths = {}
-            sevenths = {}    
-            eighths = {}
-            ninths = {}    
-            tenths = {}
-            elevenths = {}    
-            twelfths = {}
-            thirteenths = {}    
-            fourteenths = {}
-            fifteenths = {}
             for medal, country_name in medals_this_gw.items():
                 if medal == "gold":
-                    golds = country_name
+                    all_golds[country_name] = all_golds.get(country_name, 0) + 1
                 elif medal == "silver":
-                    silvers = country_name
+                    all_silvers[country_name] = all_silvers.get(country_name, 0) + 1
                 elif medal == "bronze":
-                    bronzes = country_name
+                    all_bronzes[country_name] = all_bronzes.get(country_name, 0) + 1
                 elif medal == "fourth":
-                    fourths = country_name
+                    all_fourths[country_name] = all_fourths.get(country_name, 0) + 1
                 elif medal == "fifth":
-                    fifths = country_name
+                    all_fifths[country_name] = all_fifths.get(country_name, 0) + 1
                 elif medal == "sixth":
-                    sixths = country_name
+                    all_sixths[country_name] = all_sixths.get(country_name, 0) + 1
                 elif medal == "seventh":
-                    sevenths = country_name
+                    all_sevenths[country_name] = all_sevenths.get(country_name, 0) + 1
                 elif medal == "eighth":
-                    eighths = country_name
+                    all_eighths[country_name] = all_eighths.get(country_name, 0) + 1
                 elif medal == "ninth":
-                    ninths = country_name
+                    all_ninths[country_name] = all_ninths.get(country_name, 0) + 1
                 elif medal == "tenth":
-                    tenths = country_name
+                    all_tenths[country_name] = all_tenths.get(country_name, 0) + 1
                 elif medal == "eleventh":
-                    elevenths = country_name
+                    all_elevenths[country_name] = all_elevenths.get(country_name, 0) + 1
                 elif medal == "twelfth":
-                    twelfths = country_name
+                    all_twelfths[country_name] = all_twelfths.get(country_name, 0) + 1
                 elif medal == "thirteenth":
-                    thirteenths = country_name
+                    all_thirteenths[country_name] = all_thirteenths.get(country_name, 0) + 1
                 elif medal == "fourteenth":
-                    fourteenths = country_name
+                    all_fourteenths[country_name] = all_fourteenths.get(country_name, 0) + 1
                 elif medal == "fifteenth":
-                    fifteenths = country_name
+                    all_fifteenths[country_name] = all_fifteenths.get(country_name, 0) + 1
                 else:
                     pass
             medals_league[league_id] = {
-                'gold' : golds,
-                'silver' : silvers,
-                'bronze' : bronzes,
-                'fourth' : fourths,
-                'fifth' : fifths,
-                'sixth' : sixths,
-                'seventh' : sevenths,
-                'eighth' : eighths,
-                'ninth' : ninths,
-                'tenth' : tenths,
-                'eleventh' : elevenths, 
-                'twelfth' : twelfths,
-                'thirteenth' : thirteenths,
-                'fourteenth' : fourteenths,
-                'fifteenth' : fifteenths,
+                'all_golds' : all_golds,
+                'all_silvers' : all_silvers,
+                'all_bronzes' : all_bronzes,
+                'all_fourths' : all_fourths,
+                'all_fifths' : all_fifths,
+                'all_sixths' : all_sixths,
+                'all_sevenths' : all_sevenths,
+                'all_eighths' : all_eighths,
+                'all_ninths' : all_ninths,
+                'all_tenths' : all_tenths,
+                'all_elevenths' : all_elevenths, 
+                'all_twelfths' : all_twelfths,
+                'all_thirteenths' : all_thirteenths,
+                'all_fourteenths' : all_fourteenths,
+                'all_fifteenths' : all_fifteenths,
             }
         table_gws[gw] = table_league
         all_medals[gw] = medals_league
@@ -821,9 +597,9 @@ def live_reports_all(German_leagues_ids, gws):
         elapsed_time = et - st
         print(f"GameWeek {gw} ", "Done..." , end=", ")
         print('Execution time:', elapsed_time, 'seconds')
-        with open('table_dics_for_all_9.json', 'w') as fp:
+        with open('table_dics_for_all.json', 'w') as fp:
             json.dump(table_gws, fp)
-        with open('medal_dics_for_all_9.json', 'w') as fp2:
+        with open('medal_dics_for_all.json', 'w') as fp2:
             json.dump(all_medals, fp2)
     return table_gws, all_medals
 
@@ -1015,223 +791,3 @@ def get_player_live_details(player_id, gw_number):
     #print(player_name)
     #return player_details["history"][gw_number -1]
     return useful_details
-
-
-
-
-def live_report_maker_HTML(all_managers_dic, gw_number, city_name):
-    final_report_dic = manager_players_info_maker(all_managers_dic, gw_number)
-    managers_points = gw_dic_reporter(all_managers_dic, gw_number)
-    final_team_points_dic = {}
-    city_and_gw_str = f"<h1> {city_name}: (GW: {gw_number})</h1>"
-    full_report = []
-    table_report = []
-    for manager, players in managers_points.items():
-        manager_lineup_points = 0
-        manager_lineup_goals = 0
-        manager_lineup_assists = 0
-        manager_bench_points = 0
-        manager_bench_goals = 0
-        manager_bench_assists = 0
-        for player_id, player_name_pos in players.items():
-            player_details = get_player_live_details(player_id, gw_number)
-            player_total_points =  player_details["total_points"]
-            player_total_goals = player_details["goals"]
-            player_total_assists = player_details["assists"]
-            if player_name_pos[1] <= 11:
-                manager_lineup_points = manager_lineup_points + player_total_points
-                manager_lineup_goals = manager_lineup_goals + player_total_goals
-                manager_lineup_assists = manager_lineup_assists + player_total_assists
-            else:
-                manager_bench_points = manager_bench_points + player_total_points
-                manager_bench_goals = manager_bench_goals + player_total_goals
-                manager_bench_assists = manager_bench_assists + player_total_assists
-        final_team_points_dic[manager] = (manager_lineup_points, manager_bench_points, 
-                                    manager_lineup_goals, manager_bench_goals,
-                                    manager_lineup_assists, manager_bench_assists,)
-    sorted_managers = sorted(final_team_points_dic.items(), key=lambda x: (x[1][0], x[1][2], x[1][4]), reverse=True)
-
-    top_table_str = f"""
-<div class="container mt-5">
-    {city_and_gw_str}
-</div>
-<!-- form-row and form-group etc are removed in Bootstrap 5 -->
-<div class="container mt-3">
-    <div class="table-responsive">
-        <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important; margin:0.05 rem !important;">
-            <thead>
-              <tr>
-                <th scope="col" style="text-align: center">#</th>
-                <th scope="col" style="text-align: left" class="fw-light"> Team</th>
-                <th scope="col" style="text-align: center" class="fw-light"> Points(s)</th>
-                <th scope="col" style="text-align: center" class="fw-light">Goals</th>
-                <th scope="col" style="text-align: center" class="fw-light">Assists</th>
-                <th scope="col" style="text-align: center" class="fw-light">Players</th>
-                <th scope="col" style="text-align: center" class="fw-light">Bench</th>
-              </tr>
-            </thead>
-            <tbody>
-
-    """
-    table_report.append(top_table_str)
-    bottom_table_str = """
-            </tbody>
-        </table>
-    </div>
-</div>
-    """
-
-    for index, item in enumerate(sorted_managers):
-        if "Referee" in item[0]:
-            continue
-        print(index, ":", item)
-        points_bench_str = f"{str(item[1][0])}"
-        a_manager_s_players_report = ""
-        for manager, players in final_report_dic.items():
-            if manager == item[0]:
-                players_report_str = []
-                table_header_str = """
-                    <div class="table-responsive">
-                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
-                        <tbody>
-
-                """
-                table_footer_str = """
-                        </tbody>
-                    </table>
-                </div>
-                """
-                gk_in_lineup = []
-                defenders_in_lineup = []
-                mids_in_lineup = []
-                fws_in_lineup = []
-                bench_players = []
-
-                for inner_index, player in enumerate(players.keys()):
-                    player_report_info, player_pos = player_analysis_HTML(final_report_dic[manager], player)
-                    if player_pos == "GK" and inner_index< 4:
-                        gk_in_lineup.append(player_report_info)
-                    elif player_pos == "DF" and inner_index < 11:
-                        defenders_in_lineup.append(player_report_info)
-                    elif player_pos == "MF" and inner_index < 11:
-                        mids_in_lineup.append(player_report_info)
-                    elif player_pos == "FW" and inner_index < 11:
-                        fws_in_lineup.append(player_report_info)
-                    elif inner_index >= 11:
-                        bench_players.append(player_report_info)
-                
-                    #players_report_str.append(player_report_str)
-                goalie_row = "<tr><td class='GK_ROW'>" + "\n".join(gk_in_lineup)  + "</td></tr>"
-                defender_row = "<tr><td class='DF_ROW'>" + "\n".join(defenders_in_lineup)  + "</td></tr>"
-                midfielder_row = "<tr><td class='MF_ROW'>" + "\n".join(mids_in_lineup)  + "</td></tr>"
-                forward_row = "<tr><td class='FW_ROW'>" + "\n".join(fws_in_lineup)  + "</td></tr>"
-                for bench_index, bench_player in enumerate(bench_players):
-                    if bench_index == 0:
-                        bencher_0 = "<tr><td class='B_ROW1'>" + bench_player  + "</td></tr>"
-                    if bench_index == 1:
-                        bencher_1 = "<tr><td class='B_ROW2'>" + bench_player  + "</td></tr>"
-                    if bench_index == 2:
-                        bencher_2 = "<tr><td class='B_ROW3'>" + bench_player  + "</td></tr>"
-                    if bench_index == 3:
-                        bencher_3 = "<tr><td class='B_ROW4'>" + bench_player  + "</td></tr>"
-                a_manager_s_lineup_players_report = table_header_str + goalie_row + defender_row + midfielder_row + forward_row + table_footer_str
-                a_manager_s_bench_players_report = table_header_str + bencher_0 + bencher_1 + bencher_2 + bencher_3 + table_footer_str
-                #a_manager_s_lineup_players_report = "\n    ".join(players_report_str)
-
-        if index == 0:
-            team_name = u"\U0001F947" + " " + item[0]
-            team_rank_str = f"""
-            <tr> 
-                <td style="text-align: left">{str(index+1)} </td>
-                <td style="text-align: left"><h5>{team_name}</h5> </td>
-                <td style="text-align: center"><h5>{points_bench_str}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][2])}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][4])}</h5> </td>
-                <td style="text-align: center">{a_manager_s_lineup_players_report} </td>
-                <td style="text-align: center">{a_manager_s_bench_players_report} </td>
-            </tr>
-            """
-        elif index == 1:
-            team_name = u"\U0001F948" + " " + item[0]
-            team_rank_str = f"""
-            <tr> 
-                <td style="text-align: left">{str(index+1)} </td>
-                <td style="text-align: left"><h5>{team_name}</h5> </td>
-                <td style="text-align: center"><h5>{points_bench_str}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][2])}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][4])}</h5> </td>
-                <td style="text-align: center">{a_manager_s_lineup_players_report} </td>
-                <td style="text-align: center">{a_manager_s_bench_players_report} </td>
-            </tr>
-            """
-        elif index == 2:
-            team_name = u"\U0001F949" + " " + item[0]
-            team_rank_str = f"""
-            <tr> 
-                <td style="text-align: left">{str(index+1)} </td>
-                <td style="text-align: left"><h5> {team_name}</h5>  </td>
-                <td style="text-align: center"><h5>{points_bench_str}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][2])}</h5> </td>
-                <td style="text-align: center"><h5>{str(item[1][4])}</h5> </td>
-                <td style="text-align: center">{a_manager_s_lineup_players_report} </td>
-                <td style="text-align: center">{a_manager_s_bench_players_report} </td>
-            </tr>
-            """
-        else:
-            team_name = item[0]
-            team_rank_str = f"""
-            <tr> 
-                <td style="text-align: left">{str(index+1)} </td>
-                <td style="text-align: left"><h5> {team_name}</h5>  </td>
-                <td style="text-align: center"><h5> {points_bench_str}</h5> </td>
-                <td style="text-align: center"><h5> {str(item[1][2])}</h5> </td>
-                <td style="text-align: center"><h5> {str(item[1][4])}</h5> </td>
-                <td style="text-align: center">{a_manager_s_lineup_players_report} </td>
-                <td style="text-align: center">{a_manager_s_bench_players_report} </td>
-            </tr>
-            """
-
-        table_report.append(team_rank_str)
-    table_report.append(bottom_table_str)
-    table_report_str = "\n".join(table_report)
-    full_report.append(table_report_str)
-
-    with open(f"fpl_{city_name}.html", "w") as my_file:
-        my_file.write(table_report_str)
-
-    print("\n\n******  More Details  ******** \n")
-    # for manager, players in final_report_dic.items():
-    #     #print(manager, players)
-    #     final_report_list = []
-    #     manager_total_pts = final_team_points_dic[manager][0]
-    #     team_title = f"{manager::<52}{manager_total_pts:>3} pts\n"
-    #     final_report_list.append(team_title)
-    #     for index, player in enumerate(players.keys()):
-    #         player_report_str = player_analysis(final_report_dic[manager], player)
-    #         if index == 11:
-    #             final_report_list.append("_"*56)
-    #         final_report_list.append(player_report_str)
-    #     manager_report = "\n    ".join(final_report_list)
-    #     full_report.append(manager_report)
-    #return  f"\n\n{'='*60}\n".join(full_report)
-    return f"\n".join(full_report)
-
-def live_HTML_All(dic_of_all_league_name_cities, gw_number):
-    every_thing_all_in_one = []
-    toptop_table_str = f"""{{% extends "core/fpl-base.html" %}}
-{{% load crispy_forms_tags %}}
-{{% block content %}}
-"""
-    every_thing_all_in_one.append(toptop_table_str)
-    bottombottom_table_str = f"""
-{{% endblock %}}
-"""
-    for city_name, all_managers_per_league_dic in dic_of_all_league_name_cities.items():
-        new_city = live_report_maker_HTML(all_managers_per_league_dic, gw_number, city_name)
-        every_thing_all_in_one.append(new_city)
-        # make all teams in one league:
-    every_thing_all_in_one.append(bottombottom_table_str)
-    with open(f"fpl_all_together.html", "w") as my_file:
-        my_file.write("\n".join(every_thing_all_in_one))
-
-

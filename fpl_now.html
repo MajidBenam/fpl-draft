@@ -1,0 +1,1080 @@
+
+{% extends "core/fpl-base.html" %}
+{% load crispy_forms_tags %}
+
+{% block city %}
+<div class="container mt-3">
+    <h1>Berlin</h1>
+</div>
+{% endblock city %}
+
+
+{% block content %}
+<!-- form-row and form-group etc are removed in Bootstrap 5 -->
+<div class="container mt-3">
+    <div class="table-responsive">
+        <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important; margin:0.05 rem !important;">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center">#</th>
+                <th scope="col" style="text-align: left" class="fw-light"> Team</th>
+                <th scope="col" style="text-align: center" class="fw-light"> Points(s)</th>
+                <th scope="col" style="text-align: center" class="fw-light">Goals</th>
+                <th scope="col" style="text-align: center" class="fw-light">Assists</th>
+                <th scope="col" style="text-align: center" class="fw-light">Players</th>
+                <th scope="col" style="text-align: center" class="fw-light">Bench</th>
+              </tr>
+            </thead>
+            <tbody>
+
+    
+
+            <tr> 
+                <td style="text-align: left">1 </td>
+                <td style="text-align: left"><h5>🥇 Italy 🇮🇹</h5> </td>
+                <td style="text-align: center"><h5>72</h5> </td>
+                <td style="text-align: center"><h5>8</h5> </td>
+                <td style="text-align: center"><h5>1</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Guaita<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Burn<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Romero<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Schär<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Martinelli<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">4</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Almirón<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">15</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Trossard<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">20</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Neves<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">A.Armstrong<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Jesus<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">8</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Martial<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">9</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3">Leno<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Walker-Peters<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-info fw-bold  px-3">Coutinho<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Zouma<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">2 </td>
+                <td style="text-align: left"><h5>🥈 Germany 🇩🇪</h5> </td>
+                <td style="text-align: center"><h5>57</h5> </td>
+                <td style="text-align: center"><h5>7</h5> </td>
+                <td style="text-align: center"><h5>3</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Pickford<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Coady<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">9</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Gomez</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Bella-Kotchap<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Ziyech</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-info fw-bold  px-3">Bernardo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">5</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Foden<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">17</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Kovacic<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Fornals<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Broja<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Haaland<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">20</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3">Neto<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">8</sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-warning fw-bold px-3">Stones 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Jonny<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3"><strike>Calvert-Lewin</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">3 </td>
+                <td style="text-align: left"><h5> 🥉 China 🇨🇳</h5>  </td>
+                <td style="text-align: center"><h5>35</h5> </td>
+                <td style="text-align: center"><h5>2</h5> </td>
+                <td style="text-align: center"><h5>3</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Alisson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Emerson Royal<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">-2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Thiago Silva<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Renan Lodi 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">De Cordova-Reid<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">7</sup>
+        
+
+        <span class="text-info fw-bold  px-3">De Bruyne<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">8</sup>
+        
+
+        <span class="text-warning fw-bold px-3">Rodri 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Paquetá<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Aubameyang<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">9</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Isak</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Havertz<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Areola</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3"><strike>Benrahma</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-warning fw-bold px-3">Cash 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-info fw-bold  px-3">Kristensen<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">4 </td>
+                <td style="text-align: left"><h5> South Korea 🇰🇷</h5>  </td>
+                <td style="text-align: center"><h5> 34</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Arrizabalaga<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Jansson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Aké<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Koulibaly</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Mee<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">7</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-info fw-bold  px-3">Rodrigo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Gray<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Son<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Grealish<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">2</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Wilson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Adams<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-info fw-bold  px-3">Martínez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Gabriel<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Guedes<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Vinícius<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">5 </td>
+                <td style="text-align: left"><h5> The Soviet Union ☭</h5>  </td>
+                <td style="text-align: center"><h5> 31</h5> </td>
+                <td style="text-align: center"><h5> 2</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Lloris<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Coufal</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Sánchez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Emerson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Targett<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Saka<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Bowen<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">14</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Xhaka<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">9</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Gibbs-White 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-primary fw-bold  px-3">Dennis 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-primary fw-bold  px-3">Johnson 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Forster</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-info fw-bold  px-3">Walker<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Billing<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Firmino<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">12</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">6 </td>
+                <td style="text-align: left"><h5> Japan 🇯🇵</h5>  </td>
+                <td style="text-align: center"><h5> 31</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Fabianski<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">7</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Kehrer<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">10</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Cucurella</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Trippier<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">7</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-info fw-bold  px-3">Bailey<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Rashford<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Sterling<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Mount<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Barnes 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Maupay<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-warning fw-bold px-3">Ronaldo 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-primary fw-bold  px-3">Ward 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Mateta<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-info fw-bold  px-3">Martínez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">-1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Guéhi<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">7 </td>
+                <td style="text-align: left"><h5> Great Britain 🇬🇧</h5>  </td>
+                <td style="text-align: center"><h5> 26</h5> </td>
+                <td style="text-align: center"><h5> 2</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Pope<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-primary fw-bold  px-3">Castagne 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Andersen</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-info fw-bold  px-3">Dalot<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">-2</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Fraser<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Gündogan<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Aribo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">9</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Soucek<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Welbeck<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Iheanacho 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Kane<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Strakosha</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Zinchenko<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Lamptey<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3"><strike>Hwang</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">8 </td>
+                <td style="text-align: left"><h5> Canada 🇨🇦</h5>  </td>
+                <td style="text-align: center"><h5> 22</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 3</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Begović</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Hickey<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Justin 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Fofana<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-info fw-bold  px-3">Fernandes<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Neto<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Willock<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">10</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Thiago<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Richarlison<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Diogo Jota<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Vardy 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Rodák</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-info fw-bold  px-3">Antony<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">7</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-info fw-bold  px-3">Konsa<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-info fw-bold  px-3">Malacia<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">-2</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">9 </td>
+                <td style="text-align: left"><h5> France 🇫🇷</h5>  </td>
+                <td style="text-align: center"><h5> 19</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Raya<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Mykolenko<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Henry<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Tosin<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Cornet<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Maddison 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-info fw-bold  px-3">Ramsey<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Mac Allister<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-primary fw-bold  px-3">Daka 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Mitrović<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Álvarez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-info fw-bold  px-3">De Gea<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">0</sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Eze<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Dunk<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3"><strike>Robertson</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">10 </td>
+                <td style="text-align: left"><h5> New Zealand 🇳🇿</h5>  </td>
+                <td style="text-align: center"><h5> 17</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 2</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Sánchez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-warning fw-bold px-3">Dias 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Chilwell<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Akanji</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-info fw-bold  px-3">Struijk<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Willian<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Sinisterra<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">0</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Salah<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Ødegaard<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Bruno Guimarães<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">4</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Nketiah<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>McCarthy</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Moore<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Scamacca<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">8</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Cresswell<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">11 </td>
+                <td style="text-align: left"><h5> Argentina 🇦🇷</h5>  </td>
+                <td style="text-align: center"><h5> 17</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 2</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-info fw-bold  px-3">Ederson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">White<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Aït-Nouri<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">N.Williams 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-info fw-bold  px-3">Laporte<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">0</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-info fw-bold  px-3">Eriksen<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">5</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Harrison<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Dasilva<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Diego Costa<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Toney<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Wood</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Darlow</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Luis Díaz<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">4</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Mitchell<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Ayew<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">12 </td>
+                <td style="text-align: left"><h5> Netherlands 🇳🇱</h5>  </td>
+                <td style="text-align: center"><h5> 14</h5> </td>
+                <td style="text-align: center"><h5> 1</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Sá<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Alexander-Arnold<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Van Dijk<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Matip<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Azpilicueta</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Zaha<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Joelinton</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Elliott<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Jiménez</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Mbeumo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Edouard<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Butland</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Podence<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">Caicedo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Tsimikas<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">13 </td>
+                <td style="text-align: left"><h5> Hungary 🇭🇺</h5>  </td>
+                <td style="text-align: center"><h5> 14</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-info fw-bold  px-3">Meslier<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">James<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Saliba<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-warning fw-bold px-3">Llorente 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Janelt<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Andreas<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Tielemans 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        
+
+        <span class="text-info fw-bold  px-3">Mahrez<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-warning fw-bold px-3">Bamford 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        
+
+        <span class="text-secondary fw-bold  px-3">Antonio<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Solanke<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-primary fw-bold  px-3">Henderson 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Botman<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">5</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">March<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">6</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Estupiñán<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">14 </td>
+                <td style="text-align: left"><h5> United States 🇺🇲</h5>  </td>
+                <td style="text-align: center"><h5> 10</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Mendy</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-secondary fw-bold  px-3">Kilman<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Dier<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">0</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Veltman<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Perišić<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-secondary fw-bold  px-3"><strike>Kulusevski</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Ward-Prowse<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Wissa<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Groß<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Højbjerg<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-warning fw-bold px-3">Ings 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3"><strike>Travers</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Tomiyasu<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-warning fw-bold px-3">Archer 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Darwin<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+            <tr> 
+                <td style="text-align: left">15 </td>
+                <td style="text-align: left"><h5> Australia 🇦🇺</h5>  </td>
+                <td style="text-align: center"><h5> 9</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center"><h5> 0</h5> </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='GK_ROW'>
+        <span class="text-secondary fw-bold  px-3">Ramsdale<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='DF_ROW'>
+        <span class="text-info fw-bold  px-3">Cancelo<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Varane<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">0</sup>
+        
+
+        <span class="text-warning fw-bold px-3">Digne 
+            <sup><i class="fa-solid fa-ellipsis text-warning"></i></sup>
+        </span>
+        </td></tr><tr><td class='MF_ROW'>
+        <span class="text-info fw-bold  px-3">Aaronson<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Sancho<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">2</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3">Gordon<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-secondary fw-bold  px-3"><strike>Saint-Maximin</strike><sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary"><i class="fa-solid fa-xmark"></i></sup>
+        </td></tr><tr><td class='FW_ROW'>
+        <span class="text-secondary fw-bold  px-3">Mara<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        
+
+        <span class="text-info fw-bold  px-3">Watkins<sup class="badge py-1 px-2 fw-bold rounded-pill bg-info">1</sup>
+        
+
+        <span class="text-primary fw-bold  px-3">Awoniyi 
+            <sup><i class="fa-solid fa-circle text-primary"></i></sup>
+        </span>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+                <td style="text-align: center">
+                    <div class="table-responsive">
+                    <table id="table_id" class="table align-middle table-striped table-hover table-bordered" style="padding: 0.25 rem !important;">
+                        <tbody>
+
+                <tr><td class='B_ROW1'>
+        <span class="text-secondary fw-bold  px-3">Bazunu<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr><tr><td class='B_ROW2'>
+        <span class="text-secondary fw-bold  px-3">Jensen<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">3</sup>
+        </td></tr><tr><td class='B_ROW3'>
+        <span class="text-secondary fw-bold  px-3">R.Sessegnon<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">1</sup>
+        </td></tr><tr><td class='B_ROW4'>
+        <span class="text-secondary fw-bold  px-3">Tarkowski<sup class="badge py-1 px-2 fw-bold rounded-pill bg-secondary">2</sup>
+        </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 </td>
+            </tr>
+            
+
+                        </tbody>
+
+          </table>
+    </div>
+</div>
+{% endblock %}
+    
